@@ -1,0 +1,18 @@
+version: '3.7'
+
+volumes:
+  job_portal:
+  pgadmin-data:
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=job_portal
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '54321:5432'
+    volumes:
+      - job_portal:/var/lib/postgresql/data
